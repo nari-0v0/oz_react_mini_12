@@ -5,27 +5,33 @@ import './MovieDetail.css';
 export default function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchMovieDetail = async () => {
-      const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?language=ko-KR`,
-        {
-          headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`,
-          },
-        }
-      );
-      const data = await res.json();
-      setMovie(data);
+      try {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?language=ko-KR`,
+          {
+            headers: {
+              accept: 'application/json',
+              Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`,
+            },
+          }
+        );
+        if (!res.ok) throw new Error('API 호출 실패');
+        const data = await res.json();
+        setMovie(data);
+      } catch (err) {
+        setError(true);
+      }
     };
 
     fetchMovieDetail();
   }, [id]);
 
+  if (error) return <div className="error">해당 영화를 찾을 수 없습니다.</div>;
   if (!movie) return <div className="loading">로딩 중...</div>;
-
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   return (
