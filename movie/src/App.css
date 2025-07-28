@@ -17,3 +17,11 @@ body {
   background-color: #ffffff;
 
 }
+
+/* 검색결과 없음*/
+.no-results {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+  margin-top: 40px;
+}
