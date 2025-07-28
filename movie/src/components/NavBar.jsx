@@ -33,8 +33,12 @@ export default function NavBar() {
       />
 
       <div className="auth-buttons">
-        <button className="btn login">로그인</button>
-        <button className="btn signup">회원가입</button>
+        <Link className="btn login" to="/login">
+          로그인
+        </Link>
+        <Link className="btn signup" to="/signup">
+          회원가입
+        </Link>
       </div>
     </nav>
   );

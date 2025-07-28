@@ -21,7 +21,7 @@
 }
 
 .category-labels span:hover {
-    text-decoration: underline;
+    border-bottom: 2px solid #a259ff;
 }
 
 .genre-select {
@@ -48,5 +48,5 @@
 }
 
 .genre-select:hover {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid #a259ff;
 }
