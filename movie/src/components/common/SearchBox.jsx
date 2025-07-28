@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useDebounce from '../hooks/useDebounce';
+import useDebounce from '../../hooks/useDebounce';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function SearchBox() {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useDebounce from '../hooks/useDebounce';
+import useDebounce from '../../hooks/useDebounce';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './NavBar.css';
 
@@ -11,11 +11,24 @@ export default function NavBar() {
 
   useEffect(() => {
     if (debouncedSearch) {
-      navigate(`/?query=${encodeURIComponent(debouncedSearch)}`);
-    } else if (location.pathname === '/') {
+      navigate(`/search?query=${encodeURIComponent(debouncedSearch)}`);
+    } else if (location.pathname.startsWith('/search')) {
       navigate('/');
     }
   }, [debouncedSearch]);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const urlSearch = new URLSearchParams(location.search);
+      const hasQuery = urlSearch.get('query');
+
+      if (hasQuery) {
+        navigate('/', { replace: true });
+      }
+
+      setSearchTerm('');
+    }
+  }, [location.pathname]);
 
   return (
     <nav className="navbar">

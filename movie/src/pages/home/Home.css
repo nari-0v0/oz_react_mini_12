@@ -1,0 +1,49 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-section {
+    min-width: 100vw;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 스와이프 버튼 */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 12px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.nav-button.left {
+    left: 8px;
+}
+
+.nav-button.right {
+    right: 8px;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 12px 0;
+}

@@ -25,3 +25,10 @@ body {
   font-size: 18px;
   margin-top: 40px;
 }
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 12px 0;
+}
