@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import MovieCard from '../../components/movie/MovieCard';
+import './MovieSection.css';
 
 export default function MovieSection({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,7 @@ export default function MovieSection({ title, fetchUrl }) {
   return (
     <section>
       <h2>{title}</h2>
-      <div className="movie-container">
+      <div className="carousel-container">
         {movies.map((movie) => (
           <MovieCard
             key={movie.id}

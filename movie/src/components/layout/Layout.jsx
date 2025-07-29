@@ -7,9 +7,9 @@ export default function Layout() {
   return (
     <>
       <NavBar />
-      <div className="genre-bar">
+      {/* <div className="genre-bar">
         <GenreSelect />
-      </div>
+      </div> */}
       <Outlet />
     </>
   );

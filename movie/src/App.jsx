@@ -15,7 +15,7 @@ export default function App() {
     const fetchSearch = async () => {
       setLoading(true);
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${query}&language=ko-KR`,
+        `https://api.themoviedb.org/3/search/movie?query=${query}&language=ko-KR&include_adult=false`,
         {
           headers: {
             accept: 'application/json',
@@ -39,7 +39,7 @@ export default function App() {
       {!loading && movies.length === 0 ? (
         <div className="no-results">검색 결과가 없습니다.</div>
       ) : (
-        <ul className={query ? 'movie-list' : 'movie-container'}>
+        <ul className={query ? 'movie-list' : 'search-container'}>
           {movies.map((movie) => (
             <MovieCard
               key={movie.id}

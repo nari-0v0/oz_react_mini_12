@@ -5,15 +5,15 @@ export default function Home() {
     <div>
       <MovieSection
         title="🔥 인기 영화"
-        fetchUrl="https://api.themoviedb.org/3/movie/popular?language=ko-KR"
+        fetchUrl="https://api.themoviedb.org/3/movie/popular?language=ko-KR&include_adult=false"
       />
       <MovieSection
         title="🎬 현재 상영작"
-        fetchUrl="https://api.themoviedb.org/3/movie/now_playing?language=ko-KR"
+        fetchUrl="https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&include_adult=false"
       />
       <MovieSection
         title="⭐ 최고 평점"
-        fetchUrl="https://api.themoviedb.org/3/movie/top_rated?language=ko-KR"
+        fetchUrl="https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&include_adult=false"
       />
     </div>
   );

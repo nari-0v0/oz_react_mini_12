@@ -1,24 +1,19 @@
-/* 전체 페이지 설정 */
+/* 기본 세팅 */
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #fff;
 }
 
-/* 메인 영화 목록 컨테이너 */
-.movie-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  /* ✅ 카드 너비에 맞춰 조정 */
-  gap: 30px;
+/* 로딩 텍스트 */
+.loading {
+  text-align: center;
   padding: 40px;
-  justify-items: stretch;
-  /* ✅ 카드가 셀 전체 너비 차지하도록 */
-  background-color: #ffffff;
-
+  font-size: 20px;
+  color: #555;
 }
 
-/* 검색결과 없음*/
+/* 검색 결과 없음 */
 .no-results {
   text-align: center;
   color: #777;
@@ -26,9 +21,12 @@ body {
   margin-top: 40px;
 }
 
+/* 검색 결과 컨테이너 (카드 목록) */
+.search-container,
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 12px 0;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }

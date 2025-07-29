@@ -9,14 +9,18 @@ export default function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  //검색어 입력시 이동
   useEffect(() => {
     if (debouncedSearch) {
       navigate(`/search?query=${encodeURIComponent(debouncedSearch)}`);
+      //encodeURIComponent() :검색어에 공백이나 특수문자가 있을경우 인코딩해는 함수
     } else if (location.pathname.startsWith('/search')) {
+      //startsWith : 자바스크립트 문자열 함수
       navigate('/');
     }
   }, [debouncedSearch]);
 
+  // 홈으로 이동 시 검색 초기화
   useEffect(() => {
     if (location.pathname === '/') {
       const urlSearch = new URLSearchParams(location.search);
@@ -30,6 +34,7 @@ export default function NavBar() {
     }
   }, [location.pathname]);
 
+  //UI
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
