@@ -1,0 +1,19 @@
+section {
+    margin: 10px;
+}
+
+/* 스와이프 가능한 영화 카드 목록 */
+.carousel-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin: 15px;
+}
+
+/* 각 카드가 스냅되도록 설정 */
+.carousel-container {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
